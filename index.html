@@ -31,41 +31,144 @@
             font-size: small;
             font-weight: bold;
         }
+        #home {
+            height: calc(var(--vc, 1vh) * 1);
+            background-image: url('home_image.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+            position: relative;
+            text-align: center;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        /**
+         * Calculo el alto de la navbar para ajustar la portada
+         */
+        function adjustHomeHeight() {
+            let vph = window.innerHeight;
+            let hNavbar = document.getElementById("navbar_es").offsetHeight;
+            let vc = vph - hNavbar;
+            document.documentElement.style.setProperty('--vb', `${hNavbar}px`);
+            document.documentElement.style.setProperty('--vc', `${vc}px`);
+        }
+        document.addEventListener("DOMContentLoaded", (event) => {
+            adjustHomeHeight();
+        });
+        addEventListener("resize", (event) => {
+            adjustHomeHeight();
+        });
+    </script>
   </head>
   <body>
+    <!-- BARRA SUPERIOR CON REDES -->
     <header class="header">
-        <span>Gonzalo Millapinda Coyul</span>
-        <span class="float-end text-white">{redes}</span>
-    </header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">GMC</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#home">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#skills">Habilidades</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#portfolio">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#experience">Experiencia</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about">Sobre mí</a>
-              </li>
-            </ul>
-          </div>
+        <div class="container">
+            <span>Gonzalo Millapinda Coyul</span>
+            <span class="float-end text-white">{redes}</span>
         </div>
-    </nav>
+    </header>
+    <!-- BARRA DE NAVEGACION -->
+    <div class="container-fluid p-0 sticky-top" id="navbar_es">        
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#">GMC</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experiencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Habilidades</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <main class="container-md">
+        <!-- PANEL DE INICIO CON FOTO DE FONDO -->
+        <section id="home" class="row my-0">
+            <div class="center">
+                <h1>Gonzalo Millapinda Coyul</h1>
+                <h4>Desarrollador Web</h4>
+            </div>
+        </section>
+        <!-- SECCION SOBRE MI -->
+        <section class="row my-4" id="about">
+            <!-- CARROUSEL CON FOTOS EN DISTINTOS AMBITOS -->
+            <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="picture1.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="picture2.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="picture3.png" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!-- INFOBREVE SOBRE EL DESARROLLADOR WEB -->
+            <div class="col-md-6">
+                <h5>Sobre mi:</h5>
+                <p>Soy un desarrollador web con experiencia en lenguajes como PHP, JavaScript y HTML/CSS.</p>
+                <p>Me apasiona el diseño responsivo para que los sitios se adapten a cualquier dispositivo.</p>
+                <p>Mi pasión es aprender cosas nuevas y mejorar mis habilidades.</p>
+            </div>
+        </section>
+        <!-- PROYECTOS RECIENTES Y ANTIGUOS -->
+        <section class="row-my-3" id="projects">
 
+        </section>
+        <!-- EXPERIENCIA LABORAL -->
+        <section class="row-my-3" id="experience">
+
+        </section>
+        <!-- HABILIDADES TECNICAS -->
+        <section class="row-my-3" id="skills">
+
+        </section>
+    </main>
+    <!-- FOOTER CON MAPA DEL SITIO Y ENLACES DE CONTACTO -->
+    <footer>
+
+    </footer>
   </body>
 </html>
