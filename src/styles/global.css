@@ -1,0 +1,49 @@
+@import '@fontsource-variable/dm-sans';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white dark:bg-corporate-900 text-corporate-900 dark:text-corporate-50;
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Scroll reveal — oculto por defecto */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-animate="fade-in"] {
+    transform: none;
+  }
+
+  [data-animate="scale-in"] {
+    transform: scale(0.95);
+  }
+  [data-animate="scale-in"].is-visible {
+    transform: scale(1);
+  }
+
+  /* Acordeón FAQ animado */
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  .faq-content.open {
+    max-height: 300px;
+  }
+}

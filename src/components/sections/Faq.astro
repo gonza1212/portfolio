@@ -1,0 +1,73 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import { faqItems } from '../../data/faq.ts';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<section id="faq" class="py-20 bg-white dark:bg-corporate-900">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <SectionTitle
+      title="Preguntas frecuentes"
+      subtitle="Lo que suelen preguntar las empresas industriales antes de empezar"
+      centered
+    />
+    <div class="mt-12 space-y-0">
+      {faqItems.map((item, i) => (
+        <div
+          data-animate
+          style={`transition-delay:${i * 80}ms`}
+          class="border-b border-corporate-100 dark:border-corporate-700 group"
+        >
+          <button
+            data-faq-toggle
+            class="flex w-full items-center justify-between gap-4 py-5 cursor-pointer text-corporate-900 dark:text-corporate-50 font-semibold hover:text-accent-500 dark:hover:text-accent-400 transition-colors text-left"
+          >
+            {item.question}
+            <span class="faq-icon text-corporate-400 flex-shrink-0 transition-transform duration-200 text-xl leading-none">
+              +
+            </span>
+          </button>
+          <div class="faq-content">
+            <p class="pb-5 text-sm text-corporate-600 dark:text-corporate-300 leading-relaxed">
+              {item.answer}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<script>
+  document.querySelectorAll('[data-faq-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = content.classList.contains('open');
+
+      document.querySelectorAll('.faq-content.open').forEach((el) => {
+        if (el !== content) {
+          el.classList.remove('open');
+          el.previousElementSibling.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        }
+      });
+
+      content.classList.toggle('open');
+      icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+    });
+  });
+</script>

@@ -1,0 +1,35 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import { services } from '../../data/services.ts';
+---
+
+<section id="servicios" class="py-20 bg-white dark:bg-corporate-900">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <SectionTitle
+      title="Qué construimos"
+      subtitle="Soluciones digitales para los problemas reales de la industria"
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      {services.map((service, i) => (
+        <div
+          data-animate
+          style={`transition-delay:${i * 100}ms`}
+          class="bg-white dark:bg-corporate-800 border border-corporate-100 dark:border-corporate-700 rounded-xl p-6 hover:border-accent-500 dark:hover:border-accent-500 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+        >
+          <div class="text-3xl mb-4">{service.icon}</div>
+          {service.highlight && (
+            <span class="inline-block bg-accent-500/10 text-accent-600 dark:text-accent-400 text-xs font-medium px-2 py-1 rounded-full mb-3">
+              {service.highlight}
+            </span>
+          )}
+          <h3 class="font-semibold text-corporate-900 dark:text-corporate-50 mb-2">
+            {service.title}
+          </h3>
+          <p class="text-sm text-corporate-600 dark:text-corporate-300 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

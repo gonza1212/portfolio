@@ -1,0 +1,57 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import { cases } from '../../data/cases.ts';
+---
+
+<section id="casos" class="py-20 bg-white dark:bg-corporate-900">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <SectionTitle
+      title="Casos de éxito"
+      subtitle="Empresas industriales que digitalizaron su operación"
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+      {cases.map((c, i) => (
+        <div
+          data-animate
+          style={`transition-delay:${i * 150}ms`}
+          class="bg-white dark:bg-corporate-800 border border-corporate-100 dark:border-corporate-700 rounded-xl p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-accent-500 dark:hover:border-accent-500"
+        >
+          <div class="flex items-center gap-3 mb-6">
+            <span class="bg-accent-500/10 text-accent-600 dark:text-accent-400 text-xs font-semibold px-3 py-1 rounded-full">
+              {c.sector}
+            </span>
+            <span class="text-sm text-corporate-400 dark:text-corporate-400">
+              {c.company}
+            </span>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <p class="text-xs font-semibold text-corporate-400 dark:text-corporate-400 uppercase tracking-wider mb-1">
+                El problema
+              </p>
+              <p class="text-sm text-corporate-600 dark:text-corporate-300 leading-relaxed">
+                {c.problem}
+              </p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-corporate-400 dark:text-corporate-400 uppercase tracking-wider mb-1">
+                La solución
+              </p>
+              <p class="text-sm text-corporate-600 dark:text-corporate-300 leading-relaxed">
+                {c.solution}
+              </p>
+            </div>
+          </div>
+          <div class="bg-corporate-50 dark:bg-corporate-900 rounded-lg p-4 mt-6 border-l-4 border-accent-500">
+            <p class="text-xs font-semibold text-corporate-400 dark:text-corporate-400 uppercase tracking-wider mb-1">
+              Resultado
+            </p>
+            <p class="text-sm font-semibold text-corporate-900 dark:text-corporate-50">
+              {c.result}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

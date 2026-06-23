@@ -1,0 +1,34 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section
+  id="inicio"
+  class="min-h-[90vh] flex items-center bg-white dark:bg-corporate-900 relative overflow-hidden"
+>
+  <!-- Patrón de puntos decorativo -->
+  <div
+    class="absolute inset-0 opacity-30 dark:opacity-10"
+    style="background-image: radial-gradient(circle, #9c9a96 1px, transparent 1px); background-size: 32px 32px;"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-24">
+    <div class="max-w-3xl">
+      <p data-animate class="text-accent-500 font-semibold text-sm uppercase tracking-wider mb-4" style="transition-delay:0ms">
+        Software empresarial a medida
+      </p>
+      <h1 data-animate class="text-4xl sm:text-5xl lg:text-6xl font-bold text-corporate-900 dark:text-corporate-50 leading-tight mb-6" style="transition-delay:150ms">
+        Dejá atrás los Excel y los papeles.
+        <span class="text-accent-500"> Gestioná tu empresa desde cualquier lugar.</span>
+      </h1>
+      <p data-animate class="text-xl text-corporate-600 dark:text-corporate-300 mb-10 max-w-2xl leading-relaxed" style="transition-delay:300ms">
+        Desarrollamos software empresarial a medida para empresas. Software que se adapta a tu operación, no al revés.
+      </p>
+      <div data-animate class="flex flex-col sm:flex-row gap-4" style="transition-delay:450ms">
+        <Button href="#contacto" variant="primary">Hablemos de tu proyecto</Button>
+        <Button href="#proceso" variant="secondary">Ver cómo trabajamos</Button>
+      </div>
+    </div>
+  </div>
+</section>

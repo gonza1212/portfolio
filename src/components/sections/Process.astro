@@ -1,0 +1,65 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import { processSteps } from '../../data/process.ts';
+---
+
+<section id="proceso" class="py-20 bg-corporate-50 dark:bg-corporate-950">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <SectionTitle
+      title="Cómo trabajamos"
+      subtitle="Sin sorpresas ni presupuestos inflados. Del diagnóstico al sistema funcionando."
+      centered
+    />
+
+    <!-- Timeline mobile (vertical) -->
+    <div class="flex flex-col gap-0 mt-12 md:hidden">
+      {processSteps.map((step, index) => (
+        <div data-animate class="flex gap-4" style={`transition-delay:${index * 120}ms`}>
+          <div class="flex flex-col items-center">
+            <div
+              class="w-10 h-10 rounded-full bg-accent-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0 transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(249,115,22,0.35)]"
+            >
+              {step.number}
+            </div>
+            {index < processSteps.length - 1 && (
+              <div class="w-0.5 h-full min-h-[48px] bg-corporate-200 dark:bg-corporate-700 my-1"></div>
+            )}
+          </div>
+          <div class="pb-8">
+            <h3 class="font-semibold text-corporate-900 dark:text-corporate-50 mb-1">
+              {step.title}
+            </h3>
+            <p class="text-sm text-corporate-600 dark:text-corporate-300 leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Timeline desktop (horizontal) -->
+    <div class="hidden md:block mt-12">
+      <div class="relative">
+        <!-- Línea conectora -->
+        <div class="absolute top-5 left-0 right-0 h-0.5 bg-corporate-200 dark:bg-corporate-700"></div>
+        <div class="grid grid-cols-5 gap-4 relative">
+          {processSteps.map((step, i) => (
+            <div data-animate="scale-in" class="flex flex-col items-center text-center" style={`transition-delay:${i * 120}ms`}>
+              <div
+                class="w-10 h-10 rounded-full bg-accent-500 text-white flex items-center justify-center font-bold text-sm relative z-10 mb-4 transition-transform duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(249,115,22,0.35)]"
+              >
+                {step.number}
+              </div>
+              <h3 class="font-semibold text-sm text-corporate-900 dark:text-corporate-50 mb-2">
+                {step.title}
+              </h3>
+              <p class="text-xs text-corporate-600 dark:text-corporate-300 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

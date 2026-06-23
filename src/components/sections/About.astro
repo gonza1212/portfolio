@@ -1,0 +1,59 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+
+const differentials = [
+  {
+    icon: '🔏',
+    title: 'Confidencialidad garantizada',
+    description: 'Firmamos NDA antes de empezar. Cada cliente tiene su propia base de datos, sin datos compartidos entre empresas.',
+  },
+  {
+    icon: '⚡',
+    title: 'Entregas rápidas',
+    description: 'Software funcionando en 30 días. Iteramos cada 15 con feedback directo. Sin meses de análisis antes de ver resultados.',
+  },
+  {
+    icon: '💰',
+    title: 'Costo accesible',
+    description: 'Sin estructura grande ni procesos burocráticos. Nuestro modelo de trabajo nos permite ofrecer precios significativamente menores que las grandes consultoras.',
+  },
+  {
+    icon: '📋',
+    title: 'SLA definido',
+    description: 'Los tiempos de respuesta y los compromisos de soporte quedan en el contrato desde el inicio. Sin sorpresas.',
+  },
+    {
+      icon: '🏭',
+      title: 'Especialistas en industria',
+      description: 'Entendemos los flujos de trabajo empresariales. El software que desarrollamos responde a la operación real de tu empresa.',
+    },
+];
+---
+
+<section id="nosotros" class="py-20 bg-corporate-50 dark:bg-corporate-950">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <SectionTitle
+          title="Por qué elegirnos"
+          subtitle="Trabajamos diferente a las grandes consultoras. Más ágiles, más directos, más accesibles."
+        />
+      </div>
+      <div class="space-y-6">
+        {differentials.map((item, i) => (
+          <div data-animate class="flex gap-4" style={`transition-delay:${i * 100}ms`}>
+            <div class="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+            <div>
+              <h3 class="font-semibold text-corporate-900 dark:text-corporate-50 mb-1">
+                {item.title}
+              </h3>
+              <p class="text-sm text-corporate-600 dark:text-corporate-300 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
