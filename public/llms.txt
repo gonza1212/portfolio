@@ -1,0 +1,52 @@
+# Rotative
+
+> Estudio de software con base en Argentina, especializado en desarrollo de software empresarial a medida para empresas industriales. Entregamos software funcionando en 30 días e iteramos cada 15.
+
+## Servicios
+
+- [Gestión de operaciones](https://rotative.com.ar/#servicios): Reemplazo de planillas y procesos manuales por sistemas web con datos centralizados en tiempo real.
+- [Apps móviles con modo offline](https://rotative.com.ar/#servicios): Apps que registran datos sin internet y sincronizan al recuperar conexión.
+- [Exportación a Excel](https://rotative.com.ar/#servicios): El sistema es la fuente de verdad, pero se puede exportar a Excel en cualquier momento.
+- [Integración con sistemas existentes](https://rotative.com.ar/#servicios): Conexión con software de facturación, ERP o sistemas legados.
+- [Datos seguros y exclusivos](https://rotative.com.ar/#servicios): Base de datos dedicada por cliente, sin datos compartidos. NDA firmado antes de empezar.
+- [Mantenimiento y soporte](https://rotative.com.ar/#servicios): Hosting, actualizaciones, backups y soporte técnico incluidos.
+
+## Casos de éxito
+
+- [Zona Gráfica — en producción desde 2019](https://rotative.com.ar/#casos): Sistema de gestión de producción con cotización, registro de materiales y órdenes de trabajo.
+- [Estar Seguro — en construcción](https://rotative.com.ar/#casos): Sitio institucional para productores de seguros con catálogo de pólizas y formulario de cotización por WhatsApp.
+
+## Proceso de trabajo
+
+1. Diagnóstico gratuito
+2. MVP en 30 días
+3. Entregas quincenales
+4. Migración de datos
+5. Capacitación y soporte continuo
+
+## Preguntas frecuentes
+
+- ¿Vamos a perder nuestros datos de Excel? No. Migramos toda la información existente y se puede seguir exportando a Excel en cualquier momento.
+- ¿Qué pasa si no tenemos internet en la fábrica o en el campo? Las apps móviles funcionan sin conexión y sincronizan automáticamente al recuperar señal.
+- ¿Necesitamos contratar un técnico o un departamento de sistemas? No. Nos ocupamos de hosting, mantenimiento, actualizaciones de seguridad y soporte.
+- ¿Los tiempos de desarrollo son largos y caros como con otras consultoras? No. Entregamos software cada 15 días a precios significativamente menores.
+- ¿Los datos están seguros y son solo nuestros? Sí. Base de datos dedicada, sin datos compartidos. Firmamos NDA.
+- ¿Podemos probar antes de comprometernos? Sí, con un MVP piloto de costo reducido.
+- ¿Incluye hardware especializado? No. Solo software en la nube. Hardware (RFID, sensores) se cotiza aparte.
+
+## Stack técnico
+
+- Frontend: Astro 5, Tailwind CSS 3, TypeScript strict
+- Backend: aplicaciones web progresivas, bases de datos dedicadas por cliente
+- Formularios: Web3Forms
+- Deploy: GitHub Actions + Hostinger (FTP)
+
+## Contacto
+
+- Email: contacto@rotative.com.ar
+- Web: https://rotative.com.ar
+- Ubicación: Argentina
+
+## Repositorio
+
+- Código del sitio: https://github.com/gonza1212/portfolio

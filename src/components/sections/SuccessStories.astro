@@ -1,6 +1,21 @@
 ---
 import SectionTitle from '../ui/SectionTitle.astro';
 import { cases } from '../../data/cases.ts';
+
+const casesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Casos de éxito de Rotative",
+  "itemListElement": cases.map((c, i) => ({
+    "@type": "Article",
+    "position": i + 1,
+    "headline": c.company,
+    "about": c.sector,
+    "description": c.solution,
+    "inLanguage": "es-AR",
+    "author": { "@type": "Organization", "name": "Rotative" },
+  })),
+};
 ---
 
 <section id="casos" class="py-20 bg-white dark:bg-corporate-900">
@@ -55,3 +70,4 @@ import { cases } from '../../data/cases.ts';
     </div>
   </div>
 </section>
+<script type="application/ld+json" set:html={JSON.stringify(casesSchema)} />

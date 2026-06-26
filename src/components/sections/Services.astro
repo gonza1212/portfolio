@@ -1,6 +1,18 @@
 ---
 import SectionTitle from '../ui/SectionTitle.astro';
 import { services } from '../../data/services.ts';
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Servicios de Rotative",
+  "itemListElement": services.map((s, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": s.title,
+    "description": s.description,
+  })),
+};
 ---
 
 <section id="servicios" class="py-20 bg-white dark:bg-corporate-900">
@@ -33,3 +45,4 @@ import { services } from '../../data/services.ts';
     </div>
   </div>
 </section>
+<script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />

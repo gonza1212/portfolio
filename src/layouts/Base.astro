@@ -27,22 +27,42 @@ const { title, description, ogImage = '/og-image.png' } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rotative" />
+    <meta property="og:locale" content="es_AR" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={Astro.url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site description" />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Rotative",
+      "alternateName": "Rotative Software",
       "url": "https://rotative.com.ar",
-      "description": "Desarrollamos software empresarial a medida para empresas.",
-      "areaServed": "AR",
+      "logo": "https://rotative.com.ar/logo.webp",
+      "image": "https://rotative.com.ar/og-image.png",
+      "description": "Estudio de software con base en Argentina, especializado en desarrollo de software empresarial a medida para empresas industriales.",
+      "foundingDate": "2026",
+      "areaServed": { "@type": "Country", "name": "Argentina" },
+      "address": { "@type": "PostalAddress", "addressCountry": "AR" },
       "serviceType": "Desarrollo de software empresarial a medida",
+      "knowsAbout": [
+        "Software development",
+        "Custom software",
+        "Industrial software",
+        "Web applications",
+        "Mobile applications",
+        "ERP integration",
+        "Database design",
+        "MVP development"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "contacto@rotative.com.ar",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "areaServed": "AR",
+        "availableLanguage": ["Spanish"]
       }
     })} />
   </head>
