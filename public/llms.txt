@@ -14,7 +14,7 @@
 ## Casos de éxito
 
 - [Zona Gráfica — en producción desde 2019](https://rotative.com.ar/#casos): Sistema de gestión de producción con cotización, registro de materiales y órdenes de trabajo.
-- [Estar Seguro — en construcción](https://rotative.com.ar/#casos): Sitio institucional para productores de seguros con catálogo de pólizas y formulario de cotización por WhatsApp.
+- [Estar Seguro - online](https://estarseguro.com.ar): Sitio institucional para productores de seguros con catálogo de pólizas y formulario de cotización por WhatsApp.
 
 ## Proceso de trabajo
 

@@ -4,6 +4,7 @@ export interface Case {
   problem: string;
   solution: string;
   result: string;
+  url?: string;
 }
 
 export const cases: Case[] = [
@@ -16,9 +17,10 @@ export const cases: Case[] = [
   },
   {
     sector: 'Productores de seguros',
-    company: 'Estar Seguro — en construcción',
-    problem: 'Como productores asesores de seguros con matrícula vigente, no contaban con un canal digital propio para presentar su oferta, mostrar el abanico de aseguradoras con las que trabajan y captar consultas de forma ordenada. Toda la atención pasaba por WhatsApp sin un punto de entrada profesional.',
-    solution: 'Sitio institucional construido en Astro: portada con carrusel de imágenes y propuesta de valor, catálogo de cinco tipos de seguros (ART, Sepelio, Autos, Empresas y Otros), sección de diferenciales con llamada a la acción por WhatsApp, y formulario de cotización integrado con WhatsApp para enviar la consulta con un mensaje prearmado.',
-    result: 'Sitio en desarrollo al momento de publicación. Estructura, componentes y formulario de cotización ya implementados; pendiente la carga final de contenidos y salida a producción.',
+    company: 'Estar Seguro - online',
+    problem: 'Como productores asesores de seguros, no contaban con un canal digital propio para presentar su oferta, portfolio de aseguradoras, forma de trabajo y atención al usuario. Sin un punto de entrada profesional.',
+    solution: 'Sitio institucional con diseño profesional: portada con carrusel de imágenes y propuesta de valor, catálogo de tipos de seguros, sección de diferenciales con CTA vía WhatsApp y formulario de cotización integrado para enviar consultas con mensajes prearmados.',
+    result: 'Sitio optimizado para carga rápida, SEO y AEO (optimización para agentes de IA), aportando mayor visibilidad y una presencia online profesional, apegándose fielmente al diseño provisto, con full-responsive y mobile-first como máximas del desarrollo.',
+    url: 'https://estarseguro.com.ar',
   },
 ];
