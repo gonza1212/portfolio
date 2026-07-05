@@ -2,6 +2,10 @@
   "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
+  "author": {
+    "name": "Rotative",
+    "url": "https://rotative.com.ar"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
