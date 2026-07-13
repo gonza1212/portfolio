@@ -9,7 +9,7 @@ export const services: Service[] = [
   {
     icon: '📋',
     title: 'Gestión de operaciones',
-    description: 'Reemplazamos planillas y procesos manuales por sistemas web que centralizan la información de tu empresa en tiempo real.',
+    description: 'Automatización de procesos: reemplazamos planillas y tareas manuales por sistemas web que centralizan la información de tu empresa en tiempo real.',
   },
     {
       icon: '📱',

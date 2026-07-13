@@ -6,10 +6,11 @@ import Footer from '../components/layout/Footer.astro';
 interface Props {
   title: string;
   description: string;
+  ogTitle?: string;
   ogImage?: string;
 }
 
-const { title, description, ogImage = '/og-image.png' } = Astro.props;
+const { title, description, ogTitle, ogImage = '/og-image.png' } = Astro.props;
 ---
 <!doctype html>
 <html lang="es">
@@ -23,7 +24,7 @@ const { title, description, ogImage = '/og-image.png' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={ogTitle ?? title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
