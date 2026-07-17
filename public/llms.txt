@@ -45,7 +45,7 @@
 
 Artículos sobre software empresarial, transformación digital y buenas prácticas para la industria.
 
-- [¿Por qué tu fábrica necesita software propio y no una planilla de Excel?](https://rotative.com.ar/blog/por-que-tu-fabrica-necesita-software-propio): Las limitaciones de Excel en la industria y cuándo es el momento de migrar a un sistema a medida.
+- [La IA le da más sentido al software a medida, ¿por qué?](https://rotative.com.ar/blog/ia-software-a-medida): La IA no reemplaza al software a medida, lo hace accesible. Por qué el desarrollo asistido por IA cambia las reglas del juego para las PyMEs.
 
 ## Contacto
 
