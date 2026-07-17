@@ -49,8 +49,9 @@ const year = new Date().getFullYear();
         <p class="text-xs text-corporate-500">Chubut, Argentina</p>
       </div>
     </div>
-    <div class="border-t border-corporate-800 mt-8 pt-6 text-xs text-corporate-600">
-      &copy; {year} Rotative. Todos los derechos reservados.
+    <div class="border-t border-corporate-800 mt-8 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-corporate-600">
+      <span>&copy; {year} Rotative. Todos los derechos reservados.</span>
+      <a href="/blog" class="hover:text-accent-400 transition-colors">Blog</a>
     </div>
   </div>
 </footer>

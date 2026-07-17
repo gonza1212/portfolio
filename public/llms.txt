@@ -41,6 +41,12 @@
 - Formularios: Web3Forms
 - Deploy: GitHub Actions + Hostinger (FTP)
 
+## Blog
+
+Artículos sobre software empresarial, transformación digital y buenas prácticas para la industria.
+
+- [¿Por qué tu fábrica necesita software propio y no una planilla de Excel?](https://rotative.com.ar/blog/por-que-tu-fabrica-necesita-software-propio): Las limitaciones de Excel en la industria y cuándo es el momento de migrar a un sistema a medida.
+
 ## Contacto
 
 - Email: contacto@rotative.com.ar

@@ -1,0 +1,99 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/blog/ArticleCard.astro';
+import SearchBar from '../../components/blog/SearchBar.astro';
+import { getAllArticles } from '../../data/blog-schema';
+
+const articles = await getAllArticles();
+
+const articlesForSearch = articles.map((a) => ({
+  slug: a.id,
+  title: a.data.title,
+  description: a.data.description,
+  tags: a.data.tags,
+}));
+
+const siteUrl = 'https://rotative.com.ar';
+---
+
+<Base
+  title="Blog | Rotative"
+  description="Artículos sobre software empresarial, transformación digital y desarrollo de software para la industria en Argentina."
+  ogTitle="Blog de Rotative"
+>
+  <section class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <h1
+          data-animate
+          class="text-4xl sm:text-5xl font-bold text-corporate-900 dark:text-corporate-50"
+        >
+          Blog
+        </h1>
+        <p
+          data-animate
+          class="mt-4 text-lg text-corporate-600 dark:text-corporate-300"
+        >
+          Artículos sobre software empresarial, buenas prácticas y herramientas
+          para la industria.
+        </p>
+      </div>
+
+      <div data-animate class="mt-8 max-w-xl">
+        <SearchBar articles={articlesForSearch} />
+      </div>
+
+      <div id="blog-data" set:html={JSON.stringify(articlesForSearch)} class="hidden" />
+
+      <div
+        id="articles-grid"
+        data-animate
+        class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {articles.map((article) => (
+          <div data-article={article.id}>
+            <ArticleCard
+              slug={article.id}
+              title={article.data.title}
+              description={article.data.description}
+              pubDate={article.data.pubDate}
+              heroImage={article.data.heroImage}
+              tags={article.data.tags}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div id="no-results" class="hidden mt-12 text-center">
+        <p class="text-corporate-400 dark:text-corporate-500 text-lg">
+          No se encontraron artículos que coincidan con tu búsqueda.
+        </p>
+      </div>
+
+      {articles.length === 0 && (
+        <div class="mt-12 text-center">
+          <p class="text-corporate-400 dark:text-corporate-500 text-lg">
+            Próximamente publicaremos artículos útiles sobre software empresarial.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Blog de Rotative',
+      description:
+        'Artículos sobre software empresarial, transformación digital y desarrollo de software para la industria en Argentina.',
+      url: `${siteUrl}/blog`,
+      publisher: {
+        '@type': 'Organization',
+        name: 'Rotative',
+        url: siteUrl,
+      },
+    })}
+  />
+</Base>

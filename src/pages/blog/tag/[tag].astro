@@ -1,0 +1,121 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import ArticleCard from '../../../components/blog/ArticleCard.astro';
+import SearchBar from '../../../components/blog/SearchBar.astro';
+import { slugifyTag, unslugifyTag } from '../../../data/blog-schema';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('blog');
+  const tagMap = new Map<string, typeof articles>();
+
+  for (const article of articles) {
+    for (const tag of article.data.tags) {
+      const slug = slugifyTag(tag);
+      if (!tagMap.has(slug)) {
+        tagMap.set(slug, []);
+      }
+      tagMap.get(slug)!.push(article);
+    }
+  }
+
+  return Array.from(tagMap.entries()).map(([slug, tagArticles]) => ({
+    params: { tag: slug },
+    props: {
+      tag: unslugifyTag(slug),
+      tagSlug: slug,
+      articles: tagArticles.sort(
+        (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+      ),
+    },
+  }));
+}
+
+const { tag, tagSlug, articles } = Astro.props;
+
+const articlesForSearch = articles.map((a: any) => ({
+  slug: a.id,
+  title: a.data.title,
+  description: a.data.description,
+  tags: a.data.tags,
+}));
+
+const siteUrl = 'https://rotative.com.ar';
+---
+
+<Base
+  title={`Artículos sobre "${tag}" | Blog Rotative`}
+  description={`Artículos de Rotative sobre ${tag}. Guías y buenas prácticas de software empresarial para la industria.`}
+  ogTitle={`Blog: ${tag}`}
+>
+  <section class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-1.5 text-sm text-corporate-400 dark:text-corporate-500 hover:text-accent-500 dark:hover:text-accent-400 transition-colors mb-6"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Todos los artículos
+        </a>
+
+        <h1
+          data-animate
+          class="text-4xl sm:text-5xl font-bold text-corporate-900 dark:text-corporate-50"
+        >
+          {tag}
+        </h1>
+        <p
+          data-animate
+          class="mt-4 text-lg text-corporate-600 dark:text-corporate-300"
+        >
+          {articles.length} artículo{articles.length !== 1 ? 's' : ''} sobre esta temática.
+        </p>
+      </div>
+
+      <div data-animate class="mt-8 max-w-xl">
+        <SearchBar articles={articlesForSearch} />
+      </div>
+
+      <div id="blog-data" set:html={JSON.stringify(articlesForSearch)} class="hidden" />
+
+      <div
+        id="articles-grid"
+        data-animate
+        class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {articles.map((article: any) => (
+          <div data-article={article.id}>
+            <ArticleCard
+              slug={article.id}
+              title={article.data.title}
+              description={article.data.description}
+              pubDate={article.data.pubDate}
+              heroImage={article.data.heroImage}
+              tags={article.data.tags}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div id="no-results" class="hidden mt-12 text-center">
+        <p class="text-corporate-400 dark:text-corporate-500 text-lg">
+          No se encontraron artículos que coincidan con tu búsqueda.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `Artículos sobre ${tag} | Blog Rotative`,
+      description: `Artículos de Rotative sobre ${tag}.`,
+      url: `${siteUrl}/blog/tag/${tagSlug}`,
+    })}
+  />
+</Base>

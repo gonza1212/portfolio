@@ -65,4 +65,95 @@
   .faq-content.open {
     max-height: 300px;
   }
+
+  .blog-content h2 {
+    @apply text-2xl font-bold mt-10 mb-4;
+    color: var(--color-corporate-900);
+  }
+  .dark .blog-content h2 {
+    color: var(--color-corporate-50);
+  }
+  .blog-content h3 {
+    @apply text-xl font-semibold mt-8 mb-3;
+    color: var(--color-corporate-900);
+  }
+  .dark .blog-content h3 {
+    color: var(--color-corporate-50);
+  }
+  .blog-content p {
+    @apply text-base leading-relaxed mb-4;
+    color: var(--color-corporate-700);
+  }
+  .dark .blog-content p {
+    color: var(--color-corporate-200);
+  }
+  .blog-content ul,
+  .blog-content ol {
+    @apply mb-4 pl-6;
+  }
+  .blog-content li {
+    @apply text-base leading-relaxed mb-2;
+    color: var(--color-corporate-700);
+  }
+  .dark .blog-content li {
+    color: var(--color-corporate-200);
+  }
+  .blog-content ul li {
+    @apply list-disc;
+  }
+  .blog-content ol li {
+    @apply list-decimal;
+  }
+  .blog-content strong {
+    @apply font-semibold;
+    color: var(--color-corporate-900);
+  }
+  .dark .blog-content strong {
+    color: var(--color-corporate-50);
+  }
+  .blog-content a {
+    @apply underline underline-offset-2 transition-colors;
+    color: var(--color-accent-500);
+  }
+  .blog-content a:hover {
+    color: var(--color-accent-600);
+  }
+  .dark .blog-content a:hover {
+    color: var(--color-accent-400);
+  }
+  .blog-content blockquote {
+    @apply border-l-4 pl-4 italic my-6;
+    border-color: var(--color-accent-500);
+    color: var(--color-corporate-600);
+  }
+  .dark .blog-content blockquote {
+    color: var(--color-corporate-200);
+  }
+  .blog-content code {
+    @apply text-sm px-1.5 py-0.5 rounded;
+    background: var(--color-corporate-100);
+    color: var(--color-corporate-800);
+  }
+  .dark .blog-content code {
+    background: var(--color-corporate-800);
+    color: var(--color-corporate-200);
+  }
+  .blog-content pre {
+    @apply rounded-lg p-4 overflow-x-auto mb-6;
+    background: var(--color-corporate-900);
+  }
+  .dark .blog-content pre {
+    background: var(--color-corporate-950);
+  }
+  .blog-content pre code {
+    @apply bg-transparent p-0;
+    color: var(--color-corporate-100);
+  }
+  .blog-content hr {
+    @apply my-8;
+    border-color: var(--color-corporate-200);
+  }
+  .dark .blog-content hr {
+    border-color: var(--color-corporate-700);
+  }
 }

@@ -1,0 +1,75 @@
+---
+interface Props {
+  articles: Array<{
+    slug: string;
+    title: string;
+    description: string;
+    tags: string[];
+  }>;
+}
+
+const { articles } = Astro.props;
+---
+
+<div class="relative">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-corporate-400 dark:text-corporate-500 pointer-events-none"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="11" cy="11" r="8"/>
+    <path d="m21 21-4.3-4.3"/>
+  </svg>
+  <input
+    type="search"
+    id="blog-search"
+    placeholder="Buscar artículos..."
+    class="w-full pl-10 pr-4 py-3 rounded-xl border border-corporate-200 dark:border-corporate-700 bg-white dark:bg-corporate-800 text-corporate-900 dark:text-corporate-50 placeholder-corporate-400 dark:placeholder-corporate-500 focus:outline-none focus:ring-2 focus:ring-accent-500/50 focus:border-accent-500 transition-all"
+    autocomplete="off"
+  />
+</div>
+
+<script>
+  const articles = JSON.parse(document.getElementById('blog-data')?.textContent || '[]');
+  const searchInput = document.getElementById('blog-search') as HTMLInputElement;
+  const articlesGrid = document.getElementById('articles-grid');
+  const noResults = document.getElementById('no-results');
+
+  if (searchInput && articlesGrid) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase().trim();
+
+      if (!query) {
+        articlesGrid.querySelectorAll('[data-article]').forEach((el) => {
+          (el as HTMLElement).style.display = '';
+        });
+        noResults?.classList.add('hidden');
+        return;
+      }
+
+      let visibleCount = 0;
+      articlesGrid.querySelectorAll('[data-article]').forEach((el) => {
+        const articleEl = el as HTMLElement;
+        const slug = articleEl.dataset.article;
+        const article = articles.find((a: { slug: string }) => a.slug === slug);
+
+        if (!article) return;
+
+        const match =
+          article.title.toLowerCase().includes(query) ||
+          article.description.toLowerCase().includes(query) ||
+          article.tags.some((tag: string) => tag.toLowerCase().includes(query));
+
+        articleEl.style.display = match ? '' : 'none';
+        if (match) visibleCount++;
+      });
+
+      noResults?.classList.toggle('hidden', visibleCount > 0);
+    });
+  }
+</script>
