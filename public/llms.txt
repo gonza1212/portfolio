@@ -46,6 +46,7 @@
 Artículos sobre software empresarial, transformación digital y buenas prácticas para la industria.
 
 - [La IA le da más sentido al software a medida, ¿por qué?](https://rotative.com.ar/blog/ia-software-a-medida): La IA no reemplaza al software a medida, lo hace accesible. Por qué el desarrollo asistido por IA cambia las reglas del juego para las PyMEs.
+- [La IA no reemplaza a tus empleados. Reemplaza la parte repetitiva del trabajo.](https://rotative.com.ar/blog/ia-no-reemplaza-empleados-si-repetitivo): La IA no le saca el trabajo a la gente, le saca la parte mecánica. Un caso real de cómo automatizar tareas sin sacar el criterio humano del medio.
 
 ## Contacto
 

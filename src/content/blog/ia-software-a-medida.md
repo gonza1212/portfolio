@@ -1,7 +1,7 @@
 ---
 title: "La IA le da más sentido al software a medida, ¿por qué?"
 description: "La IA no reemplaza al software a medida: lo hace accesible. Explico por qué el desarrollo asistido por IA cambia las reglas del juego para las PyMEs."
-pubDate: 2026-06-13
+pubDate: 2026-07-13
 linkedinUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7482407384384966658"
 tags: ["inteligencia artificial", "software a medida", "desarrollo de software"]
 ---
