@@ -16,7 +16,7 @@ const { slug, title, description, pubDate, heroImage, tags } = Astro.props;
 
 <a
   href={`/blog/${slug}`}
-  class="group block rounded-xl border border-corporate-100 dark:border-corporate-800 bg-white dark:bg-corporate-900 overflow-hidden hover:shadow-lg hover:border-accent-500/30 dark:hover:border-accent-500/30 transition-all duration-300"
+  class="group block bg-white dark:bg-corporate-900 overflow-hidden hover:shadow-lg hover:border-accent-500/30 dark:hover:border-accent-500/30 transition-all duration-300"
 >
   {heroImage && (
     <div class="aspect-[16/9] overflow-hidden">
@@ -28,7 +28,7 @@ const { slug, title, description, pubDate, heroImage, tags } = Astro.props;
       />
     </div>
   )}
-  <div class="p-7 sm:p-8">
+  <div class="p-1 sm:p-2">
     <time
       datetime={pubDate.toISOString()}
       class="text-xs text-corporate-400 dark:text-corporate-500"
